@@ -25,6 +25,7 @@ export default class Login extends Component {
     }
     if (e.keyCode===ENTER) {
       this._handleLogin()
+      console.log(this.refs);
     }
   }
 
@@ -38,6 +39,7 @@ export default class Login extends Component {
           onKeyUp={this._handleTyping}
         />
         <button onClick={this._handleLogin}>login</button>
+        
       </div>
     );
   }
