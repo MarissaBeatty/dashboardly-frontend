@@ -3,6 +3,7 @@ import './SignUp.css';
 
 const ENTER = 13;
 
+
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +24,6 @@ export default class SignUp extends Component {
           });
     if (email && password && password.length >= 8) {
       this.props.router.push('/login')
-      // .catch(console.error)
     }
     else {
       this.setState({ error: "Please enter a valid email and password"})
