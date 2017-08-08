@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import api from '../../api';
 import BookmarkCard from '../elements/BookmarkCard';
-// import auth from '../../auth';
+import auth from '../../auth';
+// import AddButton from '../elements/AddButton';
+import CreateBookmark from '../modals/CreateBookmark';
+
 import './Board.css';
+
 
 export default class Board extends Component {
   constructor(props) {
@@ -11,8 +15,10 @@ export default class Board extends Component {
       title: "",
       description: "",
       bookmarks: [],
-      updatedAt: ""
+      updatedAt: "", 
+      ownerId: ""
     };
+    console.log(this.state)
   }
   
   componentDidMount() {
@@ -28,16 +34,30 @@ export default class Board extends Component {
         this.setState({
           title: res[0].body.title,
           description: res[0].body.description,
-          bookmarks: res[1].body.bookmarks
+          ownerId: res[0].body.ownerId,
+          bookmarks: res[1].body.bookmarks, 
+          isCreateBookmarkOpen: false
         })
       })
       .catch(console.error)
   }
 
+  //    _fetchBookmark = () => {
+  //   api.get()
+  //   .then(res => {
+  //     this.setState({ id: res.body.id })
+  //   })
+  //   .catch(console.error)
+  //   console.log(this.state)
+  // }
+
+   
   render() {
     let { bookmarks } = this.state
+    let {isCreateBoardOpen} = this.state
     return (
       <div className="board">
+        <div className="bookmarks">
         { bookmarks.map(b =>
           <BookmarkCard
             key={b.id}
@@ -47,8 +67,14 @@ export default class Board extends Component {
             url={b.url}
           />
         )}
+        </div>
+        {auth.isLoggedIn && auth.id === this.state.id ? <i className="fa fa-plus fa-2x" 
+          onClick={()=>this.setState({ isCreateBookmarkOpen: true })} /> : null }
+        {this.state.isCreateBookmarkOpen ? <CreateBookmark /> : null }
+ 
       </div>
-    );
-  }
+      
+    ); 
+  } 
 
 }

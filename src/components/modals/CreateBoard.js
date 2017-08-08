@@ -18,7 +18,7 @@ export default class CreateBoard extends Component {
       description: ""
     };
     this._handleCreateBoard = this._handleCreateBoard.bind(this);
-     console.log(this.state)
+     // console.log(this.state)
   }
   // handleClickOutside = () => {
   //   this.props.closeCreateBoard();
@@ -38,8 +38,10 @@ export default class CreateBoard extends Component {
     this.setState({
             title: title.value,
             description: description.value
-          });
+          })
+    api.postNewBoard();
     if (title && description) {
+      console.log(this.state)
       history.push('/boards/id');
     }
   }
@@ -75,7 +77,7 @@ export default class CreateBoard extends Component {
           maxLength="80"
             onKeyUp={this._handleTyping}
           />
-          <p>{}{this.state.chars_left}</p>
+          <p>{this.state.chars_left}</p>
 
           <button onClick={this._handleCreateBoard}>create</button>
           <p>{this.state.error}</p>

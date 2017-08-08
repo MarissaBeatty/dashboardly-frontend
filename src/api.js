@@ -46,6 +46,11 @@ class Api {
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
   )
+
+  postNewBookmark = (boardId) => (
+    superagent
+    .post(`${API_HOST}/boards/${boardId}/bookmarks`)
+  )
   
 }
 

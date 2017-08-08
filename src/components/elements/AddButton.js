@@ -24,6 +24,7 @@ export default class AddButton extends Component {
 
 		  </div>
 		  {this.state.isCreateBoardOpen ? <CreateBoard /> : null }
+		  {}
 	  </div>
 	);		
 	}
