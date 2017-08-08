@@ -15,12 +15,10 @@ export default class SignUp extends Component {
   }
 
   _handleSignup = () => {
-    // deep destructuring equivalent to (let email = this.refs.email.value;)
     let { email: {value: email}, password: {value: password} } = this.refs;
     this.setState({
             email: email,
             password: password, 
-
           });
     if (email && password && password.length >= 8) {
       this.props.router.push('/login')
@@ -56,7 +54,7 @@ export default class SignUp extends Component {
         placeholder="password"
           onKeyUp={this._handleTyping}
         />
-        <button onClick={this._handleLogin}>signup!</button>
+        <button onClick={this._handleSignup}>signup!</button>
         <p>{this.state.error}</p>
       </div>
     );

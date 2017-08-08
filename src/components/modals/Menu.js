@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
 import './Menu.css';
+import {browserHistory as history} from 'react-router';
 import api from '../../api.js';
 
 
@@ -12,7 +13,9 @@ class Menu extends Component {
     this.state = {
       avatarUrl: ""
     };
+    this._handleLogout = this._handleLogout.bind(this);
   }
+
   
   componentDidMount() {
     this._fetchAvatar();
@@ -27,6 +30,14 @@ class Menu extends Component {
   }
   handleClickOutside = () => {
     this.props.closeMenu();
+  }
+
+  _handleLogout (e) {
+    //console.log("Working");
+    e.preventDefault();
+    auth.logout();
+    this.props.closeMenu();
+    history.push('/login');
   }
 
   render() {
@@ -59,10 +70,8 @@ class Menu extends Component {
           : null}
 
           {isLoggedIn ?
-            <Link to="/logout" className="menu__item" onClick={closeMenu}>
-              Logout
-            </Link>
-          : null}
+            <button onClick={this._handleLogout}>logout</button>
+            : null}
         </div>
 
       </div>
