@@ -44,7 +44,6 @@ export default class CreateBookmark extends Component {
     api.postNewBookmark();
     console.log(this.state)
     if (title && url && description) {
-      history.push('/boards/id')
       window.location.reload()
     }
   }
