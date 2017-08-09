@@ -25,7 +25,7 @@ export default class Login extends Component {
     }
     if (e.keyCode===ENTER) {
       this._handleLogin()
-      console.log(this.refs);
+      // console.log(this.refs);
     }
   }
 

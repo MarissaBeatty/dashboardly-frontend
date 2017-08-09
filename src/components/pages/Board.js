@@ -25,6 +25,7 @@ export default class Board extends Component {
   
   componentDidMount() {
     this.fetchBoardData()
+    console.log(this.props.params)
   }
   
   fetchBoardData = () => {
@@ -58,7 +59,7 @@ export default class Board extends Component {
     // console.log(this.state.title, "state info on Board.js")
 
     let { bookmarks } = this.state
-    // console.log(this.state)
+    console.log(this.state)
     return (
       <div className="board">
         <div className="bookmarks">

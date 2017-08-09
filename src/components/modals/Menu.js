@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ToggleDisplay from 'react-toggle-display';
 import { Link } from 'react-router';
 import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
@@ -11,23 +12,26 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatarUrl: ""
+      avatarUrl: true
     };
     this._handleLogout = this._handleLogout.bind(this);
   }
 
-  
   componentDidMount() {
     this._fetchAvatar();
   }
   
+
   _fetchAvatar = () => {
-    api.getAvatar()
+    api.getAvatar(auth.getToken())
     .then(res => {
+      console.log(res, "this is the avatar url")
       this.setState({ avatarUrl: res.body.avatarUrl })
     })
     .catch(console.error)
+
   }
+
   handleClickOutside = () => {
     this.props.closeMenu();
   }
@@ -37,19 +41,27 @@ class Menu extends Component {
     e.preventDefault();
     auth.logout();
     this.props.closeMenu();
+    this.setState ({
+      avatarUrl: false
+    })
     history.push('/login');
   }
 
   render() {
+    // console.log(auth.avatarUrl)
     let { avatarUrl } = this.state
     let { closeMenu, show } = this.props
     const isLoggedIn = auth.isLoggedIn()
     return (
       <div className={`menu ${show?"show":""}`}>
 
+      <ToggleDisplay show={this.state.avatarUrl}>
         <div className="menu__header">
-          <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
+            <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
         </div>
+      </ToggleDisplay>
+
+        
 
         <div className="menu__list">
 

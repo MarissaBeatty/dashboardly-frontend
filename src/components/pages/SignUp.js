@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './SignUp.css';
+import auth from '../../auth';
 
 const ENTER = 13;
 
@@ -21,7 +22,10 @@ export default class SignUp extends Component {
             password: password, 
           });
     if (email && password && password.length >= 8) {
-      this.props.router.push('/login')
+      auth.signup(email, password)
+      .then(res => this.props.router.push('/'))
+      .catch(console.error)
+      // this.props.router.push('/login')
     }
     else {
       this.setState({ error: "Please enter a valid email and password"})
@@ -39,6 +43,7 @@ export default class SignUp extends Component {
   }
 
   render() {
+    // console.log(this.state.email, this.state.password)
     return (
       <div className="signup">
         <h1>Signup to Dashboardly</h1>

@@ -24,6 +24,7 @@ class Api {
   getAvatar = (token) => (
       superagent
       .get(`${API_HOST}/auth/me`)
+      .set('Authorization', `token ${token}`)
     )
 
   getBoardsList = (page, count) => (

@@ -36,12 +36,14 @@ export default class CreateBoard extends Component {
    _handleCreateBoard = () => {
     let { title: {value: title}, description: {value: description} } = this.refs;
     this.setState({
-            title: title.value,
-            description: description.value
+            title: this.refs.title,
+            description: this.refs.description
           })
     api.postNewBoard();
     if (title && description) {
-      console.log(this.state)
+      console.log(this.refs.description.value, "description on createBoard")
+      console.log(this.refs.title.value, "refs on createBoard")
+      console.log(this.state.id)
       history.push('/boards/id');
     }
   }
