@@ -12,7 +12,7 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatarUrl: true
+      avatarUrl: ""
     };
     this._handleLogout = this._handleLogout.bind(this);
   }
@@ -25,7 +25,7 @@ class Menu extends Component {
   _fetchAvatar = () => {
     api.getAvatar(auth.getToken())
     .then(res => {
-      console.log(res, "this is the avatar url")
+      // console.log(res, "this is the avatar url")
       this.setState({ avatarUrl: res.body.avatarUrl })
     })
     .catch(console.error)
@@ -41,9 +41,7 @@ class Menu extends Component {
     e.preventDefault();
     auth.logout();
     this.props.closeMenu();
-    this.setState ({
-      avatarUrl: false
-    })
+    
     history.push('/login');
   }
 
@@ -51,15 +49,15 @@ class Menu extends Component {
     // console.log(auth.avatarUrl)
     let { avatarUrl } = this.state
     let { closeMenu, show } = this.props
+    console.log(this.state)
     const isLoggedIn = auth.isLoggedIn()
     return (
       <div className={`menu ${show?"show":""}`}>
 
-      <ToggleDisplay show={this.state.avatarUrl}>
         <div className="menu__header">
-            <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
+        {isLoggedIn ? 
+            <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/> : null }
         </div>
-      </ToggleDisplay>
 
         
 
