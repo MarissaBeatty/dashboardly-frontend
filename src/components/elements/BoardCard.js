@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router';
 import auth from '../../auth';
 import EditBoard from '../modals/EditBoard';
+import DeleteBoard from '../modals/DeleteBoard';
 
 import './BoardCard.css';
 
@@ -9,7 +10,9 @@ export default class BoardCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEditBoardOpen: false
+      isEditBoardOpen: false,
+      isDeleteBoardOpen: false
+
     };
   }
   render() {
@@ -27,10 +30,17 @@ export default class BoardCard extends Component {
           
             {auth.isLoggedIn && auth.id === this.state.id ? 
               <button className="editBoardButton" 
-              onClick={()=>this.setState({ isEditBoardOpen: true })}>Edit</button> : null} 
+              onClick={()=>this.setState({ isEditBoardOpen: true })}>Edit {this.props.title}
+              </button> : null} 
           
-            {this.state.isEditBoardOpen ? <EditBoard /> : null }
+            {this.state.isEditBoardOpen ? <EditBoard BoardInfo={this.props}/> : null }
           
+            {auth.isLoggedIn && auth.id === this.state.id ? 
+              <button className="deleteBoardButton" 
+              onClick={()=>this.setState({ isDeleteBoardOpen: true })}>Delete {this.props.title}
+              </button> : null }
+
+            {this.state.isDeleteBoardOpen ? <DeleteBoard BoardInfo={this.props}/> : null }  
           
         </div>
     );

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import api from '../../api.js';
+import BookmarkCard from '../elements/BookmarkCard';
 
 const ENTER = 13;
 
@@ -8,21 +9,21 @@ constructor(props) {
     super(props);
     this.state = {
       title: "",
-      description: ""
+      url: ""
     }
 }
 
 _handleEditBookmark = () => {
-    let { title: {value: title}, description: {value: description} } = this.refs;
+    let { title: {value: title}, url: {value: url} } = this.refs;
     this.setState({
             title: this.refs.title.value,
-            description: this.refs.description.value
+            url: this.refs.url.value
           })
     api.editBookmark();
-    if (title && description) {
-    //   console.log(title)
-      console.log(this.refs.description.value)
-      // window.location.reload()
+    if (title || url) {
+      // console.log(this.refs.title.value)
+      // console.log(this.props.BookmarkInfo.url)
+      window.location.reload()
     }
   }
 
@@ -41,21 +42,21 @@ _handleEditBookmark = () => {
    render() {
         // let descriptionValue=this.props.boardInfo.description;
         // let titleValue=this.props.boardInfo.title;
-        console.log(this)
+        // console.log(this.props.BookmarkInfo)
         return (
           <div >
             <div>
               <h1>Edit Bookmark</h1>
               <input type="title"
 	            ref="title"
-	            placeholder={this.title}
+	            placeholder={this.props.BookmarkInfo.title}
 	            maxLength="30"
                 onKeyUp={this._handleTyping}
               />
               <input type="text"
-              ref="description"
-              placeholder={this.state.description}
-              maxLength="80"
+              ref="url"
+              placeholder={this.props.BookmarkInfo.url}
+              maxLength="100"
                 onKeyUp={this._handleTyping}
               />
               <p>{this.state.chars_left}</p>

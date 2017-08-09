@@ -47,16 +47,26 @@ class Api {
     .post(`${API_HOST}/boards`)
     .send({ title, description })
     )
+
+  deleteBoard = (id) => (
+     superagent
+    .delete(`${API_HOST}/boards/${id}`)
+    )
   
   getBookmarks = (boardId) => (
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
   )
 
-  editBookmark = (id, title, description) => (
+  editBookmark = (id, title, url) => (
     superagent
     .patch(`${API_HOST}/bookmarks/${id}`)
-    .send(id, title, description)
+    .send(id, title, url)
+    )
+
+  deleteBookmark = (id) => (
+    superagent
+    .delete(`${API_HOST}/bookmarks/${id}`)
     )
 
   postNewBookmark = (boardId) => (

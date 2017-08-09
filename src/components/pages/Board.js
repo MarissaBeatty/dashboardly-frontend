@@ -4,7 +4,9 @@ import BookmarkCard from '../elements/BookmarkCard';
 import auth from '../../auth';
 // import AddButton from '../elements/AddButton';
 import CreateBookmark from '../modals/CreateBookmark';
-
+import BoardCard from '../elements/BoardCard';
+import EditBoard from '../modals/EditBoard';
+import DeleteBoard from '../modals/DeleteBoard';
 import './Board.css';
 
 
@@ -16,7 +18,7 @@ export default class Board extends Component {
       description: "",
       bookmarks: [],
       updatedAt: "", 
-      ownerId: ""
+      ownerId: "", 
     };
     // console.log(this.state)
   }
@@ -36,7 +38,6 @@ export default class Board extends Component {
           description: res[0].body.description,
           ownerId: res[0].body.ownerId,
           bookmarks: res[1].body.bookmarks, 
-          isCreateBookmarkOpen: false
         })
       })
       .catch(console.error)
@@ -54,8 +55,9 @@ export default class Board extends Component {
   render() {
     // console.log(this.state)
     // console.log(this.state.ownerId)
+    // console.log(this.state.title, "state info on Board.js")
+
     let { bookmarks } = this.state
-    let {isEditBoardOpen} = this.state
     // console.log(this.state)
     return (
       <div className="board">

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import api from '../../api.js';
 // import Board from '../pages/Board.js';
+import BoardCard from '../elements/BoardCard';
 
 const ENTER = 13;
 
@@ -21,9 +22,8 @@ _handleEditBoard = () => {
             description: this.refs.description.value
           })
     api.editBoard();
-    if (title && description) {
-    //   console.log(title)
-    //   console.log(this.refs.description.value)
+    if (title || description) {
+       // console.log(this.refs.title.value, "new board info")
       window.location.reload()
     }
   }
@@ -41,22 +41,20 @@ _handleEditBoard = () => {
   }
    
    render() {
-        // let descriptionValue=this.props.boardInfo.description;
-        // let titleValue=this.props.boardInfo.title;
-        console.log(this)
+        // console.log(this.props.BoardInfo)
         return (
           <div >
             <div>
               <h1>Edit Board</h1>
               <input type="title"
 	            ref="title"
-	            placeholder={this.title}
+	            placeholder={this.props.BoardInfo.title}
 	            maxLength="30"
                 onKeyUp={this._handleTyping}
               />
               <input type="text"
               ref="description"
-              placeholder={this.state.description}
+              placeholder={this.props.BoardInfo.description}
               maxLength="80"
                 onKeyUp={this._handleTyping}
               />
