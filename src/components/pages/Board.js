@@ -42,19 +42,20 @@ export default class Board extends Component {
       .catch(console.error)
   }
 
-  //    _fetchBookmark = () => {
-  //   api.get()
-  //   .then(res => {
-  //     this.setState({ id: res.body.id })
-  //   })
-  //   .catch(console.error)
-  //   console.log(this.state)
-  // }
+     _fetchBookmark = () => {
+    api.get()
+    .then(res => {
+      this.setState({ id: res.body.id })
+    })
+    .catch(console.error)
+    // console.log(this.state)
+    // console.log(this.state.id)
+  }
 
    
   render() {
     let { bookmarks } = this.state
-    let {isCreateBoardOpen} = this.state
+    let {isEditBoardOpen} = this.state
     return (
       <div className="board">
         <div className="bookmarks">
