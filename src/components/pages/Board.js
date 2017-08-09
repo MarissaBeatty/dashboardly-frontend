@@ -18,7 +18,7 @@ export default class Board extends Component {
       updatedAt: "", 
       ownerId: ""
     };
-    console.log(this.state)
+    // console.log(this.state)
   }
   
   componentDidMount() {
@@ -48,14 +48,15 @@ export default class Board extends Component {
       this.setState({ id: res.body.id })
     })
     .catch(console.error)
-    // console.log(this.state)
-    // console.log(this.state.id)
   }
 
    
   render() {
+    // console.log(this.state)
+    // console.log(this.state.ownerId)
     let { bookmarks } = this.state
     let {isEditBoardOpen} = this.state
+    // console.log(this.state)
     return (
       <div className="board">
         <div className="bookmarks">

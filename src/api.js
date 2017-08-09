@@ -53,6 +53,12 @@ class Api {
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
   )
 
+  editBookmark = (id, title, description) => (
+    superagent
+    .patch(`${API_HOST}/bookmarks/${id}`)
+    .send(id, title, description)
+    )
+
   postNewBookmark = (boardId) => (
     superagent
     .post(`${API_HOST}/boards/${boardId}/bookmarks`)
