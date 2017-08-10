@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 // import auth from '../../auth';
 // import './CreateBoard.css';
 // import AddButton from '../elements/AddButton';
+import ToggleDisplay from 'react-toggle-display';
 import api from '../../api.js';
 import {browserHistory as history} from 'react-router';
 
@@ -41,9 +42,9 @@ export default class CreateBoard extends Component {
           })
     api.postNewBoard();
     if (title && description) {
-      console.log(this.refs.description.value, "description on createBoard")
-      console.log(this.refs.title.value, "refs on createBoard")
-      console.log(this.state.id)
+      // console.log(this.refs.description.value, "description on createBoard")
+      // console.log(this.refs.title.value, "refs on createBoard")
+      // console.log(this.state.id)
       history.push('/boards/id');
     }
   }
@@ -59,12 +60,11 @@ export default class CreateBoard extends Component {
       this._handleCreateBoard()
     }
   }
-
-
+  
   render() {
-    let { closeCreateBoard, show } = this.props
+    // let { closeCreateBoard, show } = this.props
     return (
-      <div className={`CreateBoard ${show?"show":""}`}>
+      <div className="createBoardDiv">
         <div>
           <h1>Create New Board</h1>
           <input type="title" 
@@ -81,10 +81,12 @@ export default class CreateBoard extends Component {
           />
           <p>{this.state.chars_left}</p>
 
+
           <button onClick={this._handleCreateBoard}>create</button>
           <p>{this.state.error}</p>
         </div>
       </div>
+      
       
     );
   }

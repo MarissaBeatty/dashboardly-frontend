@@ -18,14 +18,14 @@ export default class Board extends Component {
       description: "",
       bookmarks: [],
       updatedAt: "", 
-      ownerId: "", 
+      ownerId: ""
     };
     // console.log(this.state)
   }
   
   componentDidMount() {
     this.fetchBoardData()
-    console.log(this.props.params)
+    // console.log(this.props.params)
   }
   
   fetchBoardData = () => {
@@ -74,7 +74,7 @@ export default class Board extends Component {
         )}
         </div>
         {auth.isLoggedIn && auth.id === this.state.id ? <i className="fa fa-plus fa-2x" 
-          onClick={()=>this.setState({ isCreateBookmarkOpen: true })} /> : null }
+          onClick={()=>this.setState({ isCreateBookmarkOpen: !this.state.isCreateBookmarkOpen })} /> : null }
         {this.state.isCreateBookmarkOpen ? <CreateBookmark /> : null }
  
       </div>

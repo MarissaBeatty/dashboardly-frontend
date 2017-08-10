@@ -20,7 +20,7 @@ export default class AddButton extends Component {
     	<div>
 		  <div className="add-button">
 		    <i className="fa fa-plus fa-2x" 
-		    	onClick={()=>this.setState({ isCreateBoardOpen: true })} />
+		    	onClick={()=>this.setState({ isCreateBoardOpen: !this.state.isCreateBoardOpen })} />
 
 		  </div>
 		  {this.state.isCreateBoardOpen ? <CreateBoard /> : null }

@@ -20,8 +20,8 @@ _handleDeleteBoard = () => {
             id: this.props.BoardInfo.id
           })
     api.deleteBoard();
-      console.log(this.props.BoardInfo)
-      // window.location.reload()
+      // console.log(this.props.BoardInfo)
+      window.location.reload()
     }
   
 

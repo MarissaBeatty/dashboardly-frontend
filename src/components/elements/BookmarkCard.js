@@ -28,11 +28,11 @@ export default class BookmarkCard extends Component {
           <img src={""} alt={title}/>
         </a>
         {auth.isLoggedIn && auth.id === this.state.id ? <button className="editBookmarkButton" 
-          onClick={()=>this.setState({ isEditBookmarkOpen: true })}>Edit {this.props.title}</button> : null }
+          onClick={()=>this.setState({ isEditBookmarkOpen: !this.state.isEditBookmarkOpen })}>Edit {this.props.title}</button> : null }
         {this.state.isEditBookmarkOpen ? <EditBookmark BookmarkInfo={this.props}/> : null } 
         
         {auth.isLoggedIn && auth.id === this.state.id ? <button className="deleteBookmarkButton" 
-          onClick={()=>this.setState({ isDeleteBookmarkOpen: true })}>Delete {this.props.title}</button> : null }
+          onClick={()=>this.setState({ isDeleteBookmarkOpen: !this.state.isDeleteBookmarkOpen })}>Delete {this.props.title}</button> : null }
         {this.state.isDeleteBookmarkOpen ? <DeleteBookmark BookmarkInfo={this.props}/> : null }  
       </div>
     );

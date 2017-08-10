@@ -13,7 +13,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       boards: []
-    };
+   };
   }
   
   componentDidMount() {
@@ -29,7 +29,8 @@ export default class Home extends Component {
     })
     .catch(console.error)
   }
-  closeCreateBoard = () => this.setState({ isCreateBoardOpen: false })
+  // closeCreateBoard = () => this.setState({ isCreateBoardOpen: false })
+ 
   render() {
     let { boards } = this.state    
     return (
@@ -44,8 +45,7 @@ export default class Home extends Component {
               updatedAt={b.updatedAt} 
             /> 
         )}
-       
-        <AddButton />
+          <AddButton />
       </div>
     );
   }

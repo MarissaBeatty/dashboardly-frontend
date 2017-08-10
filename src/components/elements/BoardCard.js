@@ -30,14 +30,14 @@ export default class BoardCard extends Component {
           
             {auth.isLoggedIn && auth.id === this.state.id ? 
               <button className="editBoardButton" 
-              onClick={()=>this.setState({ isEditBoardOpen: true })}>Edit {this.props.title}
+              onClick={()=>this.setState({ isEditBoardOpen: !this.state.isEditBoardOpen })}>Edit {this.props.title}
               </button> : null} 
           
             {this.state.isEditBoardOpen ? <EditBoard BoardInfo={this.props}/> : null }
           
             {auth.isLoggedIn && auth.id === this.state.id ? 
               <button className="deleteBoardButton" 
-              onClick={()=>this.setState({ isDeleteBoardOpen: true })}>Delete {this.props.title}
+              onClick={()=>this.setState({ isDeleteBoardOpen: !this.state.isDeleteBoardOpen })}>Delete {this.props.title}
               </button> : null }
 
             {this.state.isDeleteBoardOpen ? <DeleteBoard BoardInfo={this.props}/> : null }  

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ToggleDisplay from 'react-toggle-display';
+// import ToggleDisplay from 'react-toggle-display';
 import { Link } from 'react-router';
 import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
@@ -49,7 +49,7 @@ class Menu extends Component {
     // console.log(auth.avatarUrl)
     let { avatarUrl } = this.state
     let { closeMenu, show } = this.props
-    console.log(this.state)
+    // console.log(this.state)
     const isLoggedIn = auth.isLoggedIn()
     return (
       <div className={`menu ${show?"show":""}`}>
