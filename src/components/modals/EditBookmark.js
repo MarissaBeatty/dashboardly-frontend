@@ -11,7 +11,8 @@ constructor(props) {
     super(props);
     this.state = {
       title: "",
-      url: ""
+      url: "", 
+      unlisted: false
     }
 }
 

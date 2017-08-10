@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import auth from '../../auth';
 // import './CreateBoard.css';
 // import AddButton from '../elements/AddButton';
-import ToggleDisplay from 'react-toggle-display';
+// import ToggleDisplay from 'react-toggle-display';
 import api from '../../api.js';
 import {browserHistory as history} from 'react-router';
 
@@ -16,7 +16,8 @@ export default class CreateBoard extends Component {
     this.state = {
       chars_left: 80,
       title: "",
-      description: ""
+      description: "", 
+      unlisted: false
     };
     this._handleCreateBoard = this._handleCreateBoard.bind(this);
      // console.log(this.state)
@@ -45,17 +46,15 @@ export default class CreateBoard extends Component {
       // console.log(description, "description on createBoard")
       // console.log(title, "title on createBoard")
       // console.log(this.refs)
-      api.postNewBoard(title, description, auth.getToken())
+      // console.log(this.state.unlisted)
+      var unlisted = this.state.unlisted;
+      api.postNewBoard(title, description, unlisted, auth.getToken())
       .then(res => history.push(`/boards/${res.body.id}`))
       .catch(console.error)
-
-
     }
-
   }
 
   _handleTyping = (e) => {
-  
     if (this.state && this.state.error) {
       this.setState({ 
         error: null 
@@ -89,9 +88,10 @@ export default class CreateBoard extends Component {
             <label>
               set as unlisted:
               <input type="radio"
-              ref="unlistedBoard"
-              value="unlistedBoard"
-              name="set as unlisted" />
+              ref="unlisted"
+              name="set as unlisted"
+              onClick={()=>this.setState({ unlisted: true })}
+               />
             </label>
           </div>
           <p>{this.state.chars_left}</p>

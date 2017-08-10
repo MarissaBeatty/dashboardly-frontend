@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api.js';
 import BoardCard from '../elements/BookmarkCard';
 import auth from '../../auth';
-import {browserHistory as history} from 'react-router';
+// import {browserHistory as history} from 'react-router';
 
 const ENTER = 13;
 
