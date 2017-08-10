@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import api from '../../api.js';
 import BookmarkCard from '../elements/BookmarkCard';
+import auth from '../../auth';
 
 const ENTER = 13;
 
@@ -20,9 +21,8 @@ _handleDeleteBookmark = () => {
     //         title: this.props.BookmarkInfo.title,
     //         url: this.props.BookmarkInfo.url
     //       })
-    api.deleteBookmark(bookmarkId);
-    
-      // window.location.reload()
+    api.deleteBookmark(bookmarkId, auth.getToken())
+    .then(res => window.location.reload())
     }
 
   _handleTyping = (e) => {

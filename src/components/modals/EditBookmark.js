@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import api from '../../api.js';
 import BookmarkCard from '../elements/BookmarkCard';
+import auth from '../../auth';
+
 
 const ENTER = 13;
 
@@ -22,7 +24,9 @@ _handleEditBookmark = () => {
           })
     
     if (title || url) {
-      api.editBookmark(bookmarkId, title, url);
+      api.editBookmark(bookmarkId, title, url, auth.getToken())
+      .then(res => window.location.reload())
+
       // console.log(this.refs.title.value)
       // console.log(this.refs.url.value);
       // console.log(this.props.BookmarkInfo);

@@ -14,7 +14,6 @@ export default class AddButton extends Component {
   // closeCreateBoard = () => this.setState({ isCreateBoardOpen: false })
   // openCreateBoard = () => this.setState({ isCreateBoardOpen: true })
   render() {
-        let {isCreateBoardOpen} = this.state
         // console.log(this.state)
     return (
     	<div>

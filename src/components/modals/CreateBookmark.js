@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './CreateBookmark.css';
 import api from '../../api';
-import Board from '../pages/Board';
-import {browserHistory as history} from 'react-router';
+import auth from '../../auth';
+// import Board from '../pages/Board';
+// import {browserHistory as history} from 'react-router';
 
 
 const ENTER = 13;
@@ -21,7 +22,7 @@ export default class CreateBookmark extends Component {
   }
 
   _fetchBookmarks = () => {
-    api.getBookmarks()
+    api.getBookmarks(auth.getToken())
     .then(res=> {
       this.setState({ 
         id: res.body.id, 
@@ -47,8 +48,8 @@ export default class CreateBookmark extends Component {
     // console.log(url)
     if (title && url && description) {
 
-      api.postNewBookmark(boardId, title, url, description);
-      // window.location.reload()
+      api.postNewBookmark(boardId, title, url, description, auth.getToken())
+      .then(res => window.location.reload())
     }
   }
 
@@ -66,9 +67,9 @@ export default class CreateBookmark extends Component {
 
 
   render() {
-    let { closeCreateBookmark, show } = this.props
+    // let { closeCreateBookmark, show } = this.props
     return (
-      <div className={`CreateBookmark ${show?"show":""}`}>
+      <div className="createBookmarkDiv">
       <div>
         <h1>Create New Bookmark</h1>
         <input type="text" 

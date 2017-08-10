@@ -42,13 +42,16 @@ export default class CreateBoard extends Component {
           })
     
     if (title && description) {
-      console.log(description, "description on createBoard")
-      console.log(title, "title on createBoard")
+      // console.log(description, "description on createBoard")
+      // console.log(title, "title on createBoard")
       // console.log(this.refs)
-      api.postNewBoard(title, description)
+      api.postNewBoard(title, description, auth.getToken())
+      .then(res => history.push(`/boards/${res.body.id}`))
+      .catch(console.error)
 
-      // history.push('/boards/{id}');
+
     }
+
   }
 
   _handleTyping = (e) => {

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import api from '../../api.js';
 import BoardCard from '../elements/BookmarkCard';
+import auth from '../../auth';
+import {browserHistory as history} from 'react-router';
 
 const ENTER = 13;
 
@@ -21,9 +23,11 @@ _handleDeleteBoard = () => {
     //         // url: this.props.BoardInfo.url,
     //         id: this.props.BoardInfo.id
     //       })
-    api.deleteBoard(boardId);
+    api.deleteBoard(boardId, auth.getToken())
       // console.log(this.props.BoardInfo.id)
-      // window.location.reload()
+      // .then(res => this.props.router.push('/'))
+      .then(res => window.location.reload())
+
     }
   
 

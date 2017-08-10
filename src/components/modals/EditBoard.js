@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api.js';
 // import Board from '../pages/Board.js';
 import BoardCard from '../elements/BoardCard';
+import auth from '../../auth';
 
 const ENTER = 13;
 
@@ -23,12 +24,15 @@ _handleEditBoard = () => {
           })
     
     if (title || description) {
-       // console.log(this.refs.title.value, "new board info")
+       console.log(title, "new board title")
       // 
+      // var 
 
-      api.editBoard(this.props.BoardInfo.id, this.props.BoardInfo.title, this.props.BoardInfo.description);
+      api.editBoard(this.props.BoardInfo.id, title, description, auth.getToken())
       // console.log(this.props.BoardInfo.id)
       // window.location.reload()
+      .then(res => window.location.reload())
+
     }
   }
 

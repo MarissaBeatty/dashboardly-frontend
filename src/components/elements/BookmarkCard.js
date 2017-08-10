@@ -16,10 +16,10 @@ export default class BookmarkCard extends Component {
 
   render() {
     // console.log(this.state)
-    let { title, description, url, id } = this.props
+    let { title, description, url, bookmarkId } = this.props
     var link = url
-    console.log(link, "url")
-    console.log(this.props, "BookmarkCard props")
+    // console.log(link, "url")
+    // console.log(this.props, "BookmarkCard props")
     return (
       <div className="bookmarkDiv">
         <a className="bookmark-card" href={link}>
