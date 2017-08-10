@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import onClickOutside from 'react-onclickoutside';
-// import auth from '../../auth';
+import auth from '../../auth';
 // import './CreateBoard.css';
 // import AddButton from '../elements/AddButton';
 import ToggleDisplay from 'react-toggle-display';
@@ -40,17 +40,19 @@ export default class CreateBoard extends Component {
             title: this.refs.title,
             description: this.refs.description
           })
-    api.postNewBoard();
+    
     if (title && description) {
-      // console.log(this.refs.description.value, "description on createBoard")
-      // console.log(this.refs.title.value, "refs on createBoard")
-      // console.log(this.state.id)
-      history.push('/boards/id');
+      console.log(description, "description on createBoard")
+      console.log(title, "title on createBoard")
+      // console.log(this.refs)
+      api.postNewBoard(title, description)
+
+      // history.push('/boards/{id}');
     }
   }
 
   _handleTyping = (e) => {
-    
+  
     if (this.state && this.state.error) {
       this.setState({ 
         error: null 
@@ -62,6 +64,7 @@ export default class CreateBoard extends Component {
   }
   
   render() {
+
     // let { closeCreateBoard, show } = this.props
     return (
       <div className="createBoardDiv">
@@ -79,6 +82,15 @@ export default class CreateBoard extends Component {
           maxLength="80"
             onKeyUp={this._handleTyping}
           />
+          <div className="radioDiv">
+            <label>
+              set as unlisted:
+              <input type="radio"
+              ref="unlistedBoard"
+              value="unlistedBoard"
+              name="set as unlisted" />
+            </label>
+          </div>
           <p>{this.state.chars_left}</p>
 
 

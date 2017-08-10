@@ -14,16 +14,16 @@ constructor(props) {
 }
 
 _handleDeleteBookmark = () => {
+  var bookmarkId = this.props.BookmarkInfo.id;
     // let { title: {value: title}, url: {value: url}, id: {value: id} } = this.refs;
-    this.setState({
-            title: this.props.BookmarkInfo.title,
-            url: this.props.BookmarkInfo.url
-          })
-    api.deleteBookmark();
+    // this.setState({
+    //         title: this.props.BookmarkInfo.title,
+    //         url: this.props.BookmarkInfo.url
+    //       })
+    api.deleteBookmark(bookmarkId);
     
-      window.location.reload()
+      // window.location.reload()
     }
-  // }
 
   _handleTyping = (e) => {
     

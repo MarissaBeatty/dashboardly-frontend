@@ -17,15 +17,17 @@ export default class BookmarkCard extends Component {
   render() {
     // console.log(this.state)
     let { title, description, url, id } = this.props
-    // console.log(this.props, "BookmarkCard props")
+    var link = url
+    console.log(link, "url")
+    console.log(this.props, "BookmarkCard props")
     return (
       <div className="bookmarkDiv">
-        <a className="bookmark-card" href={url}>
+        <a className="bookmark-card" href={link}>
           <div>
             <h2>{ title }</h2>
             <p>{ description }</p>
           </div>
-          <img src={""} alt={title}/>
+           
         </a>
         {auth.isLoggedIn && auth.id === this.state.id ? <button className="editBookmarkButton" 
           onClick={()=>this.setState({ isEditBookmarkOpen: !this.state.isEditBookmarkOpen })}>Edit {this.props.title}</button> : null }

@@ -59,7 +59,8 @@ export default class Board extends Component {
     // console.log(this.state.title, "state info on Board.js")
 
     let { bookmarks } = this.state
-    console.log(this.state)
+    let { title, description, url, id } = this.props
+    // console.log(this.state)
     return (
       <div className="board">
         <div className="bookmarks">
@@ -75,7 +76,7 @@ export default class Board extends Component {
         </div>
         {auth.isLoggedIn && auth.id === this.state.id ? <i className="fa fa-plus fa-2x" 
           onClick={()=>this.setState({ isCreateBookmarkOpen: !this.state.isCreateBookmarkOpen })} /> : null }
-        {this.state.isCreateBookmarkOpen ? <CreateBookmark /> : null }
+        {this.state.isCreateBookmarkOpen ? <CreateBookmark BoardInfo={this.props}/> : null }
  
       </div>
       

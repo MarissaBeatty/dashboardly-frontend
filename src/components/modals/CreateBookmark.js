@@ -33,18 +33,22 @@ export default class CreateBookmark extends Component {
   }
 
   _handleCreateBookmark = () => {
+    var boardId = this.props.BoardInfo.params.id;
+    // console.log(this.props.BoardInfo.params.id)
     let { url: {value: url}, title: {value: title}, description: {value: description} } = this.refs;
-    console.log(this.refs)
+    // console.log(this.refs)
     this.setState({
-            url: url.value,
-            title: title.value,
-            description: description.value
+            title: this.refs.title,
+            url: this.refs.url,
+            description: this.refs.description
           })
     
-    api.postNewBookmark();
-    console.log(this.state)
+    
+    // console.log(url)
     if (title && url && description) {
-      window.location.reload()
+
+      api.postNewBookmark(boardId, title, url, description);
+      // window.location.reload()
     }
   }
 

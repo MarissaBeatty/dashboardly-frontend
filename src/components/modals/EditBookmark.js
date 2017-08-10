@@ -15,15 +15,19 @@ constructor(props) {
 
 _handleEditBookmark = () => {
     let { title: {value: title}, url: {value: url} } = this.refs;
+    var bookmarkId = this.props.BookmarkInfo.id;
     this.setState({
             title: this.refs.title.value,
             url: this.refs.url.value
           })
-    api.editBookmark();
+    
     if (title || url) {
+      api.editBookmark(bookmarkId, title, url);
       // console.log(this.refs.title.value)
-      // console.log(this.props.BookmarkInfo.url)
-      window.location.reload()
+      // console.log(this.refs.url.value);
+      // console.log(this.props.BookmarkInfo);
+      // console.log(url, "url")
+      // window.location.reload()
     }
   }
 

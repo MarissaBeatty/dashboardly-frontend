@@ -40,18 +40,21 @@ class Api {
   editBoard = (id, title, description) => (
     superagent
     .patch(`${API_HOST}/boards/${id}`)
-    .send(id, title, description)
+    .send(title, description)
+    .then(console.log(id, "id", title, "title", description, "descr"))
     )
 
   postNewBoard = (title, description) => (
      superagent
-    .post(`${API_HOST}/boards`)
+    .post(`${API_HOST}/boards/`)
     .send({ title, description })
+    .then(console.log(title, "title", description, "descr", "inside postewBoard "))
     )
 
   deleteBoard = (id) => (
      superagent
     .delete(`${API_HOST}/boards/${id}`)
+    .then(console.log(id, "board id"))
     )
   
   getBookmarks = (boardId) => (
@@ -62,17 +65,21 @@ class Api {
   editBookmark = (id, title, url) => (
     superagent
     .patch(`${API_HOST}/bookmarks/${id}`)
-    .send(id, title, url)
+    .send(title, url)
+    // .then(console.log(url, "url", title, "title", id, "id"))
     )
 
   deleteBookmark = (id) => (
     superagent
     .delete(`${API_HOST}/bookmarks/${id}`)
+    .then(console.log(id, "id"))
     )
 
-  postNewBookmark = (boardId) => (
+  postNewBookmark = (boardId,  title, url, description) => (
     superagent
     .post(`${API_HOST}/boards/${boardId}/bookmarks`)
+    .send({ title, url, description })
+    // .then(console.log(boardId, "boardId", title, "title",  url, "url", description, "description"))
   )
   
 }

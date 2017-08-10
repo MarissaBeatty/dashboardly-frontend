@@ -4,7 +4,7 @@ import BoardCard from '../elements/BoardCard';
 // import CreateBoard from '../modals/CreateBoard';
 import AddButton from '../elements/AddButton';
 
-// import auth from '../../auth';
+import auth from '../../auth';
 import './Home.css';
 
 
@@ -30,11 +30,18 @@ export default class Home extends Component {
     .catch(console.error)
   }
   // closeCreateBoard = () => this.setState({ isCreateBoardOpen: false })
- 
+  
+
   render() {
-    let { boards } = this.state    
+    let { boards } = this.state
+    const isLoggedIn = auth.isLoggedIn()
+    
     return (
       <div className="home">
+        <form className="searchForm">
+        <p>Search!</p>
+        <input type="text" ref="searchInput" placeholder="search boards" />
+        </form>
         
           { boards.map(b =>
             <BoardCard
@@ -45,7 +52,9 @@ export default class Home extends Component {
               updatedAt={b.updatedAt} 
             /> 
         )}
-          <AddButton />
+
+        {isLoggedIn ? <AddButton /> : null}
+          
       </div>
     );
   }

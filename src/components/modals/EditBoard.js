@@ -21,10 +21,14 @@ _handleEditBoard = () => {
             title: this.refs.title.value,
             description: this.refs.description.value
           })
-    api.editBoard();
+    
     if (title || description) {
        // console.log(this.refs.title.value, "new board info")
-      window.location.reload()
+      // 
+
+      api.editBoard(this.props.BoardInfo.id, this.props.BoardInfo.title, this.props.BoardInfo.description);
+      // console.log(this.props.BoardInfo.id)
+      // window.location.reload()
     }
   }
 
@@ -58,6 +62,16 @@ _handleEditBoard = () => {
               maxLength="80"
                 onKeyUp={this._handleTyping}
               />
+
+              <div className="radioDiv">
+                <label>
+                  set as unlisted:
+                  <input type="radio"
+                  ref="unlistedBoard"
+                  value="unlistedBoard"
+                  name="set as unlisted" />
+                </label>
+              </div>
               <p>{this.state.chars_left}</p>
 
              <button onClick={this._handleEditBoard}>done!</button>

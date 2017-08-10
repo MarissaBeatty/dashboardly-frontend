@@ -8,20 +8,22 @@ export default class DeleteBoard extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      url: ""
+      // title: "",
+      // url: ""
     }
+    this._handleDeleteBoard = this._handleDeleteBoard.bind(this);
 }
 
 _handleDeleteBoard = () => {
-    this.setState({
-            title: this.props.BoardInfo.title,
-            url: this.props.BoardInfo.url,
-            id: this.props.BoardInfo.id
-          })
-    api.deleteBoard();
-      // console.log(this.props.BoardInfo)
-      window.location.reload()
+  var boardId = this.props.BoardInfo.id;
+    // this.setState({
+    //         // title: this.props.BoardInfo.title,
+    //         // url: this.props.BoardInfo.url,
+    //         id: this.props.BoardInfo.id
+    //       })
+    api.deleteBoard(boardId);
+      // console.log(this.props.BoardInfo.id)
+      // window.location.reload()
     }
   
 
@@ -38,14 +40,12 @@ _handleDeleteBoard = () => {
   }
    
    render() {
-        console.log(this.props.BoardInfo, "BoardInfo")
+        // console.log(this.props.BoardInfo, "BoardInfo")
 
         return (
           <div >
             <div>
               <h1>Delete Board</h1>
-              
-
              <button onClick={this._handleDeleteBoard}>delete!</button>
               <p>{this.state.error}</p>
             </div>
