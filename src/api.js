@@ -27,9 +27,11 @@ class Api {
       .set('Authorization', `token ${token}`)
     )
 
-  getBoardsList = (page, count) => (
+  getBoardsList = (id) => (
     superagent
     .get(`${API_HOST}/boards`)
+    .send({id})
+    // .then(console.log(id))
   )
  
   getSearch = (keyword) => (
@@ -65,7 +67,7 @@ class Api {
      superagent
     .delete(`${API_HOST}/boards/${id}`)
     .set('Authorization', `token ${token}`)
-    .then(console.log(id, "board id"))
+    // .then(console.log(id, "board id"))
     )
 
   // unlistedBoard = (token) => (
@@ -84,14 +86,14 @@ class Api {
     .patch(`${API_HOST}/bookmarks/${id}`)
     .send({title, url})
     .set('Authorization', `token ${token}`)
-    .then(console.log(url, "url", title, "title", id, "id", token, "token"))
+    // .then(console.log(url, "url", title, "title", id, "id", token, "token"))
     )
 
   deleteBookmark = (id, token) => (
     superagent
     .delete(`${API_HOST}/bookmarks/${id}`)
     .set('Authorization', `token ${token}`)
-    .then(console.log(id, "id"))
+    // .then(console.log(id, "id"))
     )
 
   postNewBookmark = (boardId,  title, url, description, token) => (

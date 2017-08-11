@@ -24,7 +24,7 @@ _handleDeleteBoard = () => {
     //         id: this.props.BoardInfo.id
     //       })
     api.deleteBoard(boardId, auth.getToken())
-      // console.log(this.props.BoardInfo.id)
+      console.log(this.props.BoardInfo)
       // .then(res => this.props.router.push('/'))
       .then(res => window.location.reload())
 

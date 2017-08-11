@@ -16,8 +16,8 @@ export default class BoardCard extends Component {
     };
   }
   render() {
-    let { title, description, id } = this.props
-      // console.log(this.state)
+    let { title, description, id, ownerId } = this.props
+    console.log(this.props)
     return (
       <div className="boardCardDiv">
       <Link to={`/boards/${id}`}>
@@ -27,14 +27,14 @@ export default class BoardCard extends Component {
         </div>
         </Link>  
           
-            {auth.isLoggedIn && auth.id === this.state.id ? 
+            { auth.id === this.state.id ? 
               <button className="editBoardButton" 
               onClick={()=>this.setState({ isEditBoardOpen: !this.state.isEditBoardOpen })}>Edit {this.props.title}
               </button> : null} 
           
             {this.state.isEditBoardOpen ? <EditBoard BoardInfo={this.props}/> : null }
           
-            {auth.isLoggedIn && auth.id === this.state.id ? 
+            { auth.id === this.state.id ? 
               <button className="deleteBoardButton" 
               onClick={()=>this.setState({ isDeleteBoardOpen: !this.state.isDeleteBoardOpen })}>Delete {this.props.title}
               </button> : null }
