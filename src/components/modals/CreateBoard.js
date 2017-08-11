@@ -99,7 +99,6 @@ export default class CreateBoard extends Component {
           </div>
 
 
-
           <button className="create-board-button" onClick={this._handleCreateBoard}>create</button>
 
           <p>{this.state.error}</p>

@@ -59,7 +59,7 @@ h1 {
 	background-color: #FFCE00;
 	text-transform: capitalize;
 	margin: 10px;
-	outline: red;
+	outline: none;
 }
 
 .create-board-button:active {

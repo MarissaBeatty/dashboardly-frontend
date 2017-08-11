@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api.js';
 import BoardCard from '../elements/BookmarkCard';
 import auth from '../../auth';
+import './DeleteBoard.css';
 // import {browserHistory as history} from 'react-router';
 
 const ENTER = 13;
@@ -48,9 +49,9 @@ _handleDeleteBoard = () => {
 
         return (
           <div >
-            <div>
+            <div className="delete-board">
               <h1>Delete Board</h1>
-             <button onClick={this._handleDeleteBoard}>delete!</button>
+             <button className="delete-button" onClick={this._handleDeleteBoard}>delete!</button>
               <p>{this.state.error}</p>
             </div>
           </div>

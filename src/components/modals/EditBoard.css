@@ -1,0 +1,30 @@
+.innerEditBoardDiv {
+	background-color: #037584;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-radius: 12px;
+	color: #fff;
+}
+
+.innerEditBoardDiv input {
+	border-radius: 12px;
+	padding: 10px;
+	outline: none;
+	font-size: 15px;
+	margin: 20px;
+}
+
+.edit-board-button {
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 17px;
+	background-color: #FFCE00;
+	text-transform: capitalize;
+	margin: 10px;
+	outline: none;
+}
+
+.edit-board-button:active {
+      transform: translate(5px, 5px);
+    }

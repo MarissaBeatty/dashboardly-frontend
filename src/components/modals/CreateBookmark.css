@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.createBookmarkDiv {
+	background-color: rgba(0,0,0, 0.7);
+	text-align: center;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 8px 8px 5px #888888;
+	height: 100vh;
+	width: 100vw;
+	z-index: 900;
+	top: 0;
+	left: 0;
+	position: fixed;
+}
+
+.innerCreateBookmarkDiv {
+	background-color: #037584;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 12px;
+	margin: -140px 0 0 -150px;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	padding: 35px;
+	font-size: 30px;
+	font-family: 'Comfortaa', sans-serif;
+}
+
+.innerCreateBookmarkDiv input {
+	border-radius: 12px;
+	padding: 10px;
+	outline: none;
+	font-size: 20px;
+	margin: 20px;
+}
+
+.create-bookmark-button {
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 17px;
+	background-color: #FFCE00;
+	text-transform: capitalize;
+	margin: 10px;
+	outline: none;
+}
+
+.create-bookmark-button:active {
+      transform: translate(5px, 5px);
+    }

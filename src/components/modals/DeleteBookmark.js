@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api.js';
 import BookmarkCard from '../elements/BookmarkCard';
 import auth from '../../auth';
+import './DeleteBookmark.css';
 
 const ENTER = 13;
 
@@ -41,12 +42,10 @@ _handleDeleteBookmark = () => {
         // console.log(this.props.BookmarkInfo, "BookmarkInfo")
 
         return (
-          <div >
-            <div>
+          <div>
+            <div className="deleteBookmark">
               <h1>Delete Bookmark</h1>
-              
-
-             <button onClick={this._handleDeleteBookmark}>delete {this.props.BookmarkInfo.title}!</button>
+             <button className="delete-bookmark-button" onClick={this._handleDeleteBookmark}>delete {this.props.BookmarkInfo.title}!</button>
               <p>{this.state.error}</p>
             </div>
           </div>
