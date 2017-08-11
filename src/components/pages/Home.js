@@ -12,7 +12,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boards: []
+      boards: [], 
+      modals: closed
    };
   }
   
@@ -47,8 +48,6 @@ export default class Home extends Component {
       <div className="home">
         <Search 
             _handleSearch={this._handleSearch}
-
-
         />
         
           { boards.map(b =>

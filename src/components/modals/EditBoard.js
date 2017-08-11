@@ -73,7 +73,7 @@ _handleEditBoard = () => {
               <div className="radioDiv">
                 <label>
                   set as unlisted:
-                  <input type="radio"
+                  <input type="checkbox"
                   ref="unlistedBoard"
                   value="unlistedBoard"
                   name="set as unlisted" 

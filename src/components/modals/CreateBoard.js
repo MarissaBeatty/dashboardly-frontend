@@ -70,7 +70,7 @@ export default class CreateBoard extends Component {
     // let { closeCreateBoard, show } = this.props
     return (
       <div className="createBoardDiv">
-        <div>
+        <div className="innerCreateBoardDiv">
           <h1>Create New Board</h1>
           <input type="title" 
           ref="title" 
@@ -87,7 +87,7 @@ export default class CreateBoard extends Component {
           <div className="radioDiv">
             <label>
               set as unlisted:
-              <input type="radio"
+              <input type="checkbox"
               ref="unlisted"
               name="set as unlisted"
               onClick={()=>this.setState({ unlisted: true })}
@@ -98,6 +98,7 @@ export default class CreateBoard extends Component {
 
 
           <button onClick={this._handleCreateBoard}>create</button>
+
           <p>{this.state.error}</p>
         </div>
       </div>
