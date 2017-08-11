@@ -48,7 +48,7 @@ export default class CreateBoard extends Component {
     if (title && description) {
       // console.log(description, "description on createBoard")
       // console.log(title, "title on createBoard")
-      console.log(this.refs)
+      // console.log(this.refs)
       // console.log(this.state.unlisted)
       var unlisted = this.state.unlisted;
       api.postNewBoard(title, description, unlisted, auth.getToken())
@@ -69,7 +69,7 @@ export default class CreateBoard extends Component {
   }
   
   render() {
-
+    // console.log(this.refs)
     // let { closeCreateBoard, show } = this.props
     return (
       <div className="createBoardDiv">

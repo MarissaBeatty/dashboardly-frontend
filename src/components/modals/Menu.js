@@ -6,6 +6,7 @@ import auth from '../../auth';
 import './Menu.css';
 import {browserHistory as history} from 'react-router';
 import api from '../../api.js';
+import Login from '../pages/Login';
 
 
 class Menu extends Component {
@@ -66,6 +67,7 @@ class Menu extends Component {
           <Link to="/" className="menu__item" onClick={closeMenu}>
             Home
           </Link>
+
 
           {!isLoggedIn ?
             <Link to="/login" className="menu__item" onClick={closeMenu}>

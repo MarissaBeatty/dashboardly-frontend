@@ -13,8 +13,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       boards: [], 
-      modals: closed, 
-      userId: null
+      modals: closed
    };
   }
   
@@ -45,8 +44,9 @@ export default class Home extends Component {
   render() {
     let { boards } = this.state
     const isLoggedIn = auth.isLoggedIn()
-    console.log(this.state.boards[0])
+    // console.log(this.state.boards[0])
 
+    // console.log(boards.id, "b id")
     
     return (
       <div className="home">
@@ -68,6 +68,7 @@ export default class Home extends Component {
           
       </div>
     );
+    console.log("hello")
   }
 
 }

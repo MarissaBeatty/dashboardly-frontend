@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import auth from '../../auth';
 import EditBoard from '../modals/EditBoard';
 import DeleteBoard from '../modals/DeleteBoard';
+import Login from '../pages/Login';
 
 import './BoardCard.css';
 
@@ -18,6 +19,8 @@ export default class BoardCard extends Component {
   render() {
 
     let { title, description, id } = this.props
+    // console.log(this.state)
+    console.log(Login.LoginEmail)
     return (
       <div className="boardCardDiv">
       <Link to={`/boards/${id}`}>
@@ -26,8 +29,8 @@ export default class BoardCard extends Component {
           <p>{ description }</p>
         </div>
         </Link>  
-          
-            { auth.id === this.state.id ? 
+
+            { auth.id === this.state.id  ? 
               <button className="editBoardButton" 
         
 
@@ -42,6 +45,7 @@ export default class BoardCard extends Component {
               </button> : null }
 
             {this.state.isDeleteBoardOpen ? <DeleteBoard BoardInfo={this.props}/> : null }  
+
         </div>
     );
   }
