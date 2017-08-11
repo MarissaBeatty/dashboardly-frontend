@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './search.css';
 // import api from '../../api';
 // import BoardCard from '../elements/BoardCard';
 // import CreateBoard from '../modals/CreateBoard';

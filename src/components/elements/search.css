@@ -1,0 +1,27 @@
+.searchForm {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 30px;
+}
+
+.searchForm button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 17px;
+  background-color: #FFCE00;
+  text-transform: capitalize;
+  margin: 10px;
+  outline: none;
+}
+
+.searchForm button:active {
+      transform: translate(5px, 5px);
+    }
+
+.searchForm input {
+	border-radius: 12px;
+	padding: 8px;
+	outline: none;
+}
