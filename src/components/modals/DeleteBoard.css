@@ -1,0 +1,23 @@
+.delete-board {
+	background-color: #037584;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-radius: 12px;
+	color: #fff;
+}
+
+.delete-button {
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 17px;
+	background-color: #FFCE00;
+	text-transform: capitalize;
+	margin: 10px;
+	outline: none;
+}
+
+.delete-button:active {
+      transform: translate(5px, 5px);
+    }
+

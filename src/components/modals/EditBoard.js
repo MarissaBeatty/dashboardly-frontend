@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import api from '../../api.js';
 // import Board from '../pages/Board.js';
 import BoardCard from '../elements/BoardCard';
+import auth from '../../auth';
+import './EditBoard.css';
 
 const ENTER = 13;
 
@@ -10,7 +12,8 @@ constructor(props) {
     super(props);
     this.state = {
       title: "",
-      description: ""
+      description: "", 
+      unlisted: false
     }
     // console.log(this.state, "state in constructor")
    }
@@ -19,16 +22,21 @@ _handleEditBoard = () => {
     let { title: {value: title}, description: {value: description} } = this.refs;
     this.setState({
             title: this.refs.title.value,
-            description: this.refs.description.value
+            description: this.refs.description.value, 
+
           })
     
     if (title || description) {
-       // console.log(this.refs.title.value, "new board info")
+       // console.log(title, "new board title")
       // 
+      var unlisted = this.state.unlisted;
 
-      api.editBoard(this.props.BoardInfo.id, this.props.BoardInfo.title, this.props.BoardInfo.description);
+      api.editBoard(this.props.BoardInfo.id, title, description, unlisted, auth.getToken())
       // console.log(this.props.BoardInfo.id)
+      .then(console.log(unlisted))
       // window.location.reload()
+      .then(res => window.location.reload())
+
     }
   }
 
@@ -47,8 +55,8 @@ _handleEditBoard = () => {
    render() {
         // console.log(this.props.BoardInfo)
         return (
-          <div >
-            <div>
+          <div className="EditBoardDiv">
+            <div className="innerEditBoardDiv">
               <h1>Edit Board</h1>
               <input type="title"
 	            ref="title"
@@ -66,15 +74,17 @@ _handleEditBoard = () => {
               <div className="radioDiv">
                 <label>
                   set as unlisted:
-                  <input type="radio"
+                  <input type="checkbox"
                   ref="unlistedBoard"
                   value="unlistedBoard"
-                  name="set as unlisted" />
+                  name="set as unlisted" 
+                  onClick={()=>this.setState({ unlisted: true })}
+                  />
                 </label>
               </div>
               <p>{this.state.chars_left}</p>
 
-             <button onClick={this._handleEditBoard}>done!</button>
+             <button className="edit-board-button" onClick={this._handleEditBoard}>done!</button>
               <p>{this.state.error}</p>
             </div>
           </div>

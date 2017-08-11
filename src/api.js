@@ -27,58 +27,80 @@ class Api {
       .set('Authorization', `token ${token}`)
     )
 
-  getBoardsList = (page, count) => (
+  getBoardsList = (token) => (
     superagent
     .get(`${API_HOST}/boards`)
+    .set('Authorization', `token ${token}`)
+    // .then(console.log(id))
   )
-  
+ 
+  getSearch = (keyword) => (
+    superagent
+    .post(`${API_HOST}/boards/search`)
+    .send({keyword})
+    // .get(`${API_HOST}/boards`)
+    // .then(console.log(keyword, "keyword in api call"))
+    )
+
   getBoard = (id) => (
     superagent
     .get(`${API_HOST}/boards/${id}`)
   )
-
-  editBoard = (id, title, description) => (
+  
+  editBoard = (id, title, description, unlisted, token) => (
     superagent
     .patch(`${API_HOST}/boards/${id}`)
-    .send(title, description)
-    .then(console.log(id, "id", title, "title", description, "descr"))
+    .send({title, description, unlisted})
+    .set('Authorization', `token ${token}`)
+    // .then(console.log(id, "id", title, "title", description, "descr", token, "token", "inside editBoard "))
     )
 
-  postNewBoard = (title, description) => (
+  postNewBoard = (title, description, unlisted, token) => (
      superagent
     .post(`${API_HOST}/boards/`)
-    .send({ title, description })
-    .then(console.log(title, "title", description, "descr", "inside postewBoard "))
+    .send({ title, description, unlisted })
+    .set('Authorization', `token ${token}`)
+    // .then(console.log(title, "title", description, "descr", unlisted, "unlisted", token, "token", "inside postnewBoard "))
     )
 
-  deleteBoard = (id) => (
+  deleteBoard = (id, token) => (
      superagent
     .delete(`${API_HOST}/boards/${id}`)
-    .then(console.log(id, "board id"))
+    .set('Authorization', `token ${token}`)
+    // .then(console.log(id, "board id"))
     )
-  
+
+  // unlistedBoard = (token) => (
+  //     superagent
+  //    .post 
+
+  //   )
+
   getBookmarks = (boardId) => (
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
   )
 
-  editBookmark = (id, title, url) => (
+  editBookmark = (id, title, url, token) => (
     superagent
     .patch(`${API_HOST}/bookmarks/${id}`)
-    .send(title, url)
-    // .then(console.log(url, "url", title, "title", id, "id"))
+    .send({title, url})
+    .set('Authorization', `token ${token}`)
+    // .then(console.log(url, "url", title, "title", id, "id", token, "token"))
     )
 
-  deleteBookmark = (id) => (
+  deleteBookmark = (id, token) => (
     superagent
     .delete(`${API_HOST}/bookmarks/${id}`)
-    .then(console.log(id, "id"))
+    .set('Authorization', `token ${token}`)
+    // .then(console.log(id, "id"))
     )
 
-  postNewBookmark = (boardId,  title, url, description) => (
+  postNewBookmark = (boardId,  title, url, description, token) => (
     superagent
     .post(`${API_HOST}/boards/${boardId}/bookmarks`)
     .send({ title, url, description })
+    .set('Authorization', `token ${token}`)
     // .then(console.log(boardId, "boardId", title, "title",  url, "url", description, "description"))
   )
   

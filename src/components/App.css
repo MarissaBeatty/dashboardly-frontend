@@ -8,6 +8,7 @@ html {
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: 0px;
   padding: 0;
   height: 100%;
@@ -29,6 +30,7 @@ a {
   color: inherit;
   font-weight: bold;
 } 
+
 
 .App-navbar {
   color: #FFCE00;
@@ -85,15 +87,17 @@ a {
   color: #0375B4;
 } 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px, max-height: 1024px) {
   .App-navbar__title {
     font-size: 250%;
+    size: 250%;
   }
 }
 
-@media screen and (max-width: 328px) {
+@media screen and (max-width: 380px, max-width: 640px) {
   .App-navbar__title {
     font-size: 150%;
+    size: 150%;
   }
 }
 

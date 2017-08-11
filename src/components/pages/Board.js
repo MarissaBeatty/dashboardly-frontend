@@ -4,9 +4,9 @@ import BookmarkCard from '../elements/BookmarkCard';
 import auth from '../../auth';
 // import AddButton from '../elements/AddButton';
 import CreateBookmark from '../modals/CreateBookmark';
-import BoardCard from '../elements/BoardCard';
-import EditBoard from '../modals/EditBoard';
-import DeleteBoard from '../modals/DeleteBoard';
+// import BoardCard from '../elements/BoardCard';
+// import EditBoard from '../modals/EditBoard';
+// import DeleteBoard from '../modals/DeleteBoard';
 import './Board.css';
 
 
@@ -33,6 +33,7 @@ export default class Board extends Component {
         api.getBoard(this.props.params.id),
         api.getBookmarks(this.props.params.id)
       ])
+      // .then(console.log(this.res))
       .then(res => {
         this.setState({
           title: res[0].body.title,
@@ -41,7 +42,9 @@ export default class Board extends Component {
           bookmarks: res[1].body.bookmarks, 
         })
       })
+      // .then(console.log())
       .catch(console.error)
+
   }
 
      _fetchBookmark = () => {
@@ -59,7 +62,7 @@ export default class Board extends Component {
     // console.log(this.state.title, "state info on Board.js")
 
     let { bookmarks } = this.state
-    let { title, description, url, id } = this.props
+    // let { title, description, url, id } = this.props
     // console.log(this.state)
     return (
       <div className="board">

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './CreateBookmark.css';
 import api from '../../api';
-import Board from '../pages/Board';
-import {browserHistory as history} from 'react-router';
+import auth from '../../auth';
+// import Board from '../pages/Board';
+// import {browserHistory as history} from 'react-router';
 
 
 const ENTER = 13;
@@ -21,7 +22,7 @@ export default class CreateBookmark extends Component {
   }
 
   _fetchBookmarks = () => {
-    api.getBookmarks()
+    api.getBookmarks(auth.getToken())
     .then(res=> {
       this.setState({ 
         id: res.body.id, 
@@ -47,8 +48,8 @@ export default class CreateBookmark extends Component {
     // console.log(url)
     if (title && url && description) {
 
-      api.postNewBookmark(boardId, title, url, description);
-      // window.location.reload()
+      api.postNewBookmark(boardId, title, url, description, auth.getToken())
+      .then(res => window.location.reload())
     }
   }
 
@@ -66,34 +67,34 @@ export default class CreateBookmark extends Component {
 
 
   render() {
-    let { closeCreateBookmark, show } = this.props
+    // let { closeCreateBookmark, show } = this.props
     return (
-      <div className={`CreateBookmark ${show?"show":""}`}>
-      <div>
-        <h1>Create New Bookmark</h1>
-        <input type="text" 
-          ref="url" 
-          placeholder="Website URL"
-          maxLength="100"
-            onKeyUp={this._handleTyping}
-          />
-        <input type="title" 
-          ref="title" 
-          placeholder="Title"
-          maxLength="30"
-            onKeyUp={this._handleTyping}
-          />
+      <div className="createBookmarkDiv">
+        <div className="innerCreateBookmarkDiv">
+          <h1>Create New Bookmark</h1>
           <input type="text" 
-          ref="description" 
-          placeholder="Description"
-          maxLength="80"
-            onKeyUp={this._handleTyping}
-          />
-          <p>{this.state.chars_left}</p>
+            ref="url" 
+            placeholder="Website URL"
+            maxLength="100"
+              onKeyUp={this._handleTyping}
+            />
+          <input type="title" 
+            ref="title" 
+            placeholder="Title"
+            maxLength="30"
+              onKeyUp={this._handleTyping}
+            />
+            <input type="text" 
+            ref="description" 
+            placeholder="Description"
+            maxLength="80"
+              onKeyUp={this._handleTyping}
+            />
+            <p>{this.state.chars_left}</p>
 
-          <button onClick={this._handleCreateBookmark}>create</button>
-          <p>{this.state.error}</p>
-      </div>
+            <button className="create-bookmark-button" onClick={this._handleCreateBookmark}>create</button>
+            <p>{this.state.error}</p>
+        </div>
       </div>
     ); 
   }
