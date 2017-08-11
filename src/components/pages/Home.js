@@ -24,7 +24,7 @@ export default class Home extends Component {
   
   _fetchBoards = () => {
     // console.log(this);
-    api.getBoardsList()
+    api.getBoardsList(auth.getToken())
     .then(res => {
       this.setState({ 
         boards: res.body.boards 
