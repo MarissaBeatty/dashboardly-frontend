@@ -27,10 +27,10 @@ class Api {
       .set('Authorization', `token ${token}`)
     )
 
-  getBoardsList = (id) => (
+  getBoardsList = (token) => (
     superagent
     .get(`${API_HOST}/boards`)
-    .send({id})
+    .set('Authorization', `token ${token}`)
     // .then(console.log(id))
   )
  
