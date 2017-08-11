@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
-// import './CreateBoard.css';
+import './CreateBoard.css';
 // import AddButton from '../elements/AddButton';
 import ToggleDisplay from 'react-toggle-display';
 import api from '../../api.js';
@@ -71,7 +71,7 @@ export default class CreateBoard extends Component {
     // let { closeCreateBoard, show } = this.props
     return (
       <div className="createBoardDiv">
-        <div>
+        <div className="innerCreateBoardDiv">
           <h1>Create New Board</h1>
           <input type="title" 
           ref="title" 
@@ -94,10 +94,9 @@ export default class CreateBoard extends Component {
               name="set as unlisted" />
             </label>
           </div>
-          <p>{this.state.chars_left}</p>
 
 
-          <button onClick={this._handleCreateBoard}>create</button>
+          <button className="create-board-button" onClick={this._handleCreateBoard}>create</button>
           <p>{this.state.error}</p>
         </div>
       </div>

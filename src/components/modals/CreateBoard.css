@@ -1,0 +1,68 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.createBoardDiv {
+	background-color: rgba(0,0,0, 0.7);
+	text-align: center;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 8px 8px 5px #888888;
+	height: 100vh;
+	width: 100vw;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	position: fixed;
+}
+
+.innerCreateBoardDiv {
+	background-color: #037584;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 12px;
+	margin: -100px 0 0 -150px;
+}
+
+h1 {
+	padding: 35px;
+	font-size: 30px;
+	font-family: 'Comfortaa', sans-serif;
+}
+
+.createBoardDiv input {
+	border-radius: 12px;
+	padding: 8px;
+	outline: none;
+}
+
+.radioDiv {
+	padding: 20px;
+	font-size: 15px;
+	text-transform: capitalize;
+}
+
+.radioDiv label {
+	font-size: 20px;
+}
+
+.radioDiv input {
+	margin: 15px;
+}
+
+.create-board-button {
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 17px;
+	background-color: #FFCE00;
+	text-transform: capitalize;
+	margin: 10px;
+	outline: red;
+}
+
+.create-board-button:active {
+      transform: translate(5px, 5px);
+    }
+  

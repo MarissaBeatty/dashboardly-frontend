@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CreateBoard from '../modals/CreateBoard';
 // import Home from '../pages/Home';
+import './AddButton.css';
 
 
 export default class AddButton extends Component {
