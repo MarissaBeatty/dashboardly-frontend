@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import auth from '../../auth';
 import EditBoard from '../modals/EditBoard';
 import DeleteBoard from '../modals/DeleteBoard';
-
 import './BoardCard.css';
 
 export default class BoardCard extends Component {

@@ -1,59 +1,46 @@
+.boardCardDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .board-card {
-  background: rgba(235, 196, 55, 0.45);
-  padding: 0.5rem;
-  margin: 0.5rem;
-  border: 1px solid lightgrey;
-  border-color: #262228;
-  border-radius: 5px;
-  width: 360px;
-  /*max-width: 480px;*/
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+  background-color: #037584;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 12px;
+  color: #fff;
   cursor: pointer;
 }
 
-h2, p {
-  color: #262228;
+.boardCardDiv button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 17px;
+  background-color: #FFCE00;
+  text-transform: capitalize;
+  margin: 10px;
+  outline: none;
 }
 
-.editBoardButton {
-  font-size: inherit;
-  color: #262228;
-  border: 0.2em solid #FFCE00;
-  border-radius: 0.5em;
-  padding: 0.2em 0.5em;
-  background-color: rgba(235, 196, 55, 0.45);
-  font-weight: bold;
+.boardCardDiv button:active {
+      transform: translate(5px, 5px);
+    }
+
+.board-card  h2 {
+  padding: 35px;
+  font-size: 30px;
+  font-family: 'Comfortaa', sans-serif;
+  text-align: center;
 }
 
-.boardCardDiv {
-  align-items: center;
-  
-}
-
-.deleteBoardButton {
-	display: none;
+.board-card p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
 }
 
 
-.name_input {
-    font-size: inherit;
-    color: white;
-    border: 0.2em solid #FFCE00;
-    border-radius: 0.5em 0 0 0.5em;
-    padding: 0.2em 0.5em;
-    background-color: rgba(235, 196, 55, 0.27);
-}
-
-.password_input {
-    font-size: inherit;
-    color: white;
-    border: 0.2em solid #FFCE00;
-    border-left: 0;
-    padding: 0.2em 0.5em;
-    background-color: rgba(235, 196, 55, 0.27);
-}
-
-.name_input:hover,
-.name_input:focus {
-    border-color: #0375B4;
-}
