@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
-// import './CreateBoard.css';
+import './CreateBoard.css';
 // import AddButton from '../elements/AddButton';
 // import ToggleDisplay from 'react-toggle-display';
 import api from '../../api.js';
@@ -97,10 +97,10 @@ export default class CreateBoard extends Component {
                />
             </label>
           </div>
-          <p>{this.state.chars_left}</p>
 
 
-          <button onClick={this._handleCreateBoard}>create</button>
+
+          <button className="create-board-button" onClick={this._handleCreateBoard}>create</button>
 
           <p>{this.state.error}</p>
         </div>

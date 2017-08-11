@@ -12,12 +12,12 @@ export default class BoardCard extends Component {
     this.state = {
       isEditBoardOpen: false,
       isDeleteBoardOpen: false
-
     };
   }
+
   render() {
-    let { title, description, id, ownerId } = this.props
-    console.log(this.props)
+
+    let { title, description, id } = this.props
     return (
       <div className="boardCardDiv">
       <Link to={`/boards/${id}`}>
@@ -29,6 +29,8 @@ export default class BoardCard extends Component {
           
             { auth.id === this.state.id ? 
               <button className="editBoardButton" 
+        
+
               onClick={()=>this.setState({ isEditBoardOpen: !this.state.isEditBoardOpen })}>Edit {this.props.title}
               </button> : null} 
           
@@ -40,7 +42,6 @@ export default class BoardCard extends Component {
               </button> : null }
 
             {this.state.isDeleteBoardOpen ? <DeleteBoard BoardInfo={this.props}/> : null }  
-          
         </div>
     );
   }
