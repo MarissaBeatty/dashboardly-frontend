@@ -32,13 +32,13 @@ export default class Login extends Component {
   render() {
     return (
       <div className="login">
-        <input type="text" ref="email"
+        <input type="text" ref="email" className="name_input"
           onKeyUp={this._handleTyping}
         />
-        <input type="password" ref="password"
+        <input type="password" ref="password" className="password_input"
           onKeyUp={this._handleTyping}
         />
-        <button onClick={this._handleLogin}>login</button>
+        <button onClick={this._handleLogin} className="login_button">login</button> 
         
       </div>
     );

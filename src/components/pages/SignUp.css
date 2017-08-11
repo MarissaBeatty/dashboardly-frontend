@@ -1,0 +1,58 @@
+.signup {
+    padding: 3em;
+    display: table;
+    font-size: 20px;
+    margin: auto;
+}
+
+.signup_h1 {
+    color: #262228;
+    font-weight: none !important;
+    text-align: center;
+}
+
+.signup_email {
+    font-size: inherit;
+    color: white;
+    border: 0.2em solid #FFCE00;
+    border-radius: 0.5em 0 0 0.5em;
+    padding: 0.2em 0.5em;
+    background-color: rgba(235, 196, 55, 0.27);
+}
+
+.signup_password {
+    font-size: inherit;
+    color: white;
+    border: 0.2em solid #FFCE00;
+    border-left: 0;
+    padding: 0.2em 0.5em;
+    background-color: rgba(235, 196, 55, 0.27);
+}
+
+.signup_email:hover,
+.signup_email:focus {
+    border-color: #0375B4;
+}
+
+.signup_password:hover,
+.signup_password:focus {
+    border-color: #0375B4;
+}
+
+.signup_button {
+    font-size: inherit;
+    border: 0.2em solid #FFCE00;
+    border-radius: 0 0.5em 0.5em 0;
+    background-color: #FFCE00;
+    border-left: 0;
+    padding: 0.2em 0.75em;
+    color: #0375B4;
+}
+
+.signup_button:hover,
+.signup_button:focus {
+    color: white;
+    border-color: #0375B4;
+    background-color: #0375B4;
+}
+

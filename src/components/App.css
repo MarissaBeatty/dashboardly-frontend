@@ -1,46 +1,99 @@
-body *, body *:before, body *:after { box-sizing: inherit; }
+body *, body *:before, body *:after { box-sizing: inherit; } 
+
+
+html { 
+  background-image: url("http://wallpaperbackgrounds.com/Content/wallpapers/earth/field/summer-grain-24691.jpg"); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 18px;
   margin: 0px;
-}
+  padding: 0;
+  height: 100%;
+  width: 100%;
+} 
 
 a {
   text-decoration: none !important;
   color: inherit;
-}
-
-.App {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  background: #fff;
-  height: 100vh
-}
+  font-weight: bold;
+} 
 
 .App-navbar {
-  color: DarkSeaGreen;
+  color: #FFCE00;
   padding: 1.5rem;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
+  border-top: solid #007849 3px;
+  border-bottom: solid #007849 3px;
+  margin-top: 2em;
+  background: url("http://i62.tinypic.com/2aihf95.png");
+  background-size: cover;
+  background-color: rgba(235, 196, 55, 0.27);
+} 
 
 .App-navbar__title {
-  margin: 0;
-  color: DarkSeaGreen;
-  font-size: 1.5rem;
-  text-decoration: none;
+  justify-content: center;
 }
 
-.settings-icon, .menu-icon, .App-navbar__title {
+/* .App-navbar__title {
+  justify-content: center;
+  color: #26228;
+  font-size: 500%;
+  text-decoration: none;
+  font-family: 'Comfortaa', cursive; 
+}   */
+
+.title-wrapper {
+  margin-top: 4em;
+  display: flex;
+  color: #FFCE00;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif !important; 
+  justify-content: center;
+}
+
+ .settings-icon, .menu-icon, .App-navbar__title {
   transition: 0.5s;
   cursor: pointer;
+  margin: auto;
+  size: 10em;
+} 
+
+.menu__item {
+  background-color: rgba(235, 196, 55, 0.27);
+  font-size: 300%;
+  font-family: 'Comfortaa', cursive;
+  padding-bottom: 2em;
+  padding-left: 1em; 
+  -webkit-text-fill-color: #262228;
 }
 
-.settings-icon:hover, .menu-icon:hover, .App-navbar__title:hover {
-  color: DarkOliveGreen;
+ .settings-icon:hover, .menu-icon:hover, .App-navbar__title:hover {
+  color: #0375B4;
+} 
+
+@media screen and (max-width: 768px) {
+  .App-navbar__title {
+    font-size: 250%;
+  }
 }
+
+@media screen and (max-width: 328px) {
+  .App-navbar__title {
+    font-size: 150%;
+  }
+}
+

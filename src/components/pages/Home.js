@@ -6,6 +6,7 @@ import AddButton from '../elements/AddButton';
 
 import auth from '../../auth';
 import './Home.css';
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Montserrat" rel="stylesheet" />
 
 
 export default class Home extends Component {
@@ -15,7 +16,7 @@ export default class Home extends Component {
       boards: []
    };
   }
-  
+ 
   componentDidMount() {
     this._fetchBoards();
   }
@@ -38,23 +39,32 @@ export default class Home extends Component {
     
     return (
       <div className="home">
-        <form className="searchForm">
-        <p>Search!</p>
-        <input type="text" ref="searchInput" placeholder="search boards" />
-        </form>
-        
-          { boards.map(b =>
-            <BoardCard
-              key={b.id}
-              id={b.id}
-              title={b.title}
-              description={b.description}
-              updatedAt={b.updatedAt} 
-            /> 
-        )}
+        <div className="inner">
+          <div className="content">
+            <form className="searchForm">
+            
+              <div className="search-box-wrapper">
+                <input type="text" ref="searchInput" placeholder="search board..." className="search-box-input" />
+                <button className="search-box-button">&#x1f50d;</button>
+              </div>
+            
+            </form>
 
-        {isLoggedIn ? <AddButton /> : null}
-          
+            <div className="wrapper">
+              { boards.map(b =>
+                <BoardCard
+                  key={b.id}
+                  id={b.id}
+                  title={b.title}
+                  description={b.description}
+                  updatedAt={b.updatedAt} 
+                /> 
+            )}
+
+            {isLoggedIn ? <AddButton /> : null}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

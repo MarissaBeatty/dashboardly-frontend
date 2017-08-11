@@ -4,7 +4,6 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background: lightgrey;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -22,6 +21,8 @@
 
 .menu__header {
   height: 160px;
+  background-color: rgba(235, 196, 55, 0.27);
+
 }
 
 .menu__avatar {
@@ -35,4 +36,8 @@
 .menu__list {
   display: flex;
   flex-flow: column;
+}
+
+.menu__item:hover {
+    color: #0375B4;
 }
