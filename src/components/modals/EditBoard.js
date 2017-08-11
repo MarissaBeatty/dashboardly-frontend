@@ -3,6 +3,7 @@ import api from '../../api.js';
 // import Board from '../pages/Board.js';
 import BoardCard from '../elements/BoardCard';
 import auth from '../../auth';
+import './EditBoard.css';
 
 const ENTER = 13;
 
@@ -54,8 +55,8 @@ _handleEditBoard = () => {
    render() {
         // console.log(this.props.BoardInfo)
         return (
-          <div >
-            <div>
+          <div className="EditBoardDiv">
+            <div className="innerEditBoardDiv">
               <h1>Edit Board</h1>
               <input type="title"
 	            ref="title"
@@ -83,7 +84,7 @@ _handleEditBoard = () => {
               </div>
               <p>{this.state.chars_left}</p>
 
-             <button onClick={this._handleEditBoard}>done!</button>
+             <button className="edit-board-button" onClick={this._handleEditBoard}>done!</button>
               <p>{this.state.error}</p>
             </div>
           </div>

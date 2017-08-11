@@ -1,12 +1,11 @@
 .add-button {
-  color: yellow;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  transition: 0.5s;
-  position: absolute;
-  z-index: 5000;
-  padding: 20px;
+ 	background-color: #007849;
+	border-radius: 30px;
+	padding: 10px;
+	color: #fff;
+	z-index: 6000;
+	position: absolute;
+	margin: 20px;
 }
 
 .add-button:hover {

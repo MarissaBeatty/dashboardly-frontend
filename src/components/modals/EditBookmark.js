@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api.js';
 import BookmarkCard from '../elements/BookmarkCard';
 import auth from '../../auth';
+import './EditBookmark.css';
 
 
 const ENTER = 13;
@@ -53,8 +54,8 @@ _handleEditBookmark = () => {
         // let titleValue=this.props.boardInfo.title;
         // console.log(this.props.BookmarkInfo)
         return (
-          <div >
-            <div>
+          <div>
+            <div className="innerEditBookmarkDiv">
               <h1>Edit Bookmark</h1>
               <input type="title"
 	            ref="title"
@@ -70,7 +71,7 @@ _handleEditBookmark = () => {
               />
               <p>{this.state.chars_left}</p>
 
-             <button onClick={this._handleEditBookmark}>done!</button>
+             <button className="edit-bookmark-button" onClick={this._handleEditBookmark}>done!</button>
               <p>{this.state.error}</p>
             </div>
           </div>

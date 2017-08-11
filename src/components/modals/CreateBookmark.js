@@ -70,31 +70,31 @@ export default class CreateBookmark extends Component {
     // let { closeCreateBookmark, show } = this.props
     return (
       <div className="createBookmarkDiv">
-      <div>
-        <h1>Create New Bookmark</h1>
-        <input type="text" 
-          ref="url" 
-          placeholder="Website URL"
-          maxLength="100"
-            onKeyUp={this._handleTyping}
-          />
-        <input type="title" 
-          ref="title" 
-          placeholder="Title"
-          maxLength="30"
-            onKeyUp={this._handleTyping}
-          />
+        <div className="innerCreateBookmarkDiv">
+          <h1>Create New Bookmark</h1>
           <input type="text" 
-          ref="description" 
-          placeholder="Description"
-          maxLength="80"
-            onKeyUp={this._handleTyping}
-          />
-          <p>{this.state.chars_left}</p>
+            ref="url" 
+            placeholder="Website URL"
+            maxLength="100"
+              onKeyUp={this._handleTyping}
+            />
+          <input type="title" 
+            ref="title" 
+            placeholder="Title"
+            maxLength="30"
+              onKeyUp={this._handleTyping}
+            />
+            <input type="text" 
+            ref="description" 
+            placeholder="Description"
+            maxLength="80"
+              onKeyUp={this._handleTyping}
+            />
+            <p>{this.state.chars_left}</p>
 
-          <button onClick={this._handleCreateBookmark}>create</button>
-          <p>{this.state.error}</p>
-      </div>
+            <button className="create-bookmark-button" onClick={this._handleCreateBookmark}>create</button>
+            <p>{this.state.error}</p>
+        </div>
       </div>
     ); 
   }

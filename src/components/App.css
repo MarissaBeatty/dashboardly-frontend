@@ -16,7 +16,7 @@ a {
   flex-flow: column;
   align-items: center;
   background: #fff;
-  height: 100vh
+  height: 100vh;
 }
 
 .App-navbar {
