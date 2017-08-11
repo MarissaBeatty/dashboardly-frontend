@@ -31,26 +31,34 @@ class Api {
     superagent
     .get(`${API_HOST}/boards`)
   )
-  
+ 
+  getSearch = (keyword) => (
+    superagent
+    .post(`${API_HOST}/boards/search`)
+    .send({keyword})
+    // .get(`${API_HOST}/boards`)
+    // .then(console.log(keyword, "keyword in api call"))
+    )
+
   getBoard = (id) => (
     superagent
     .get(`${API_HOST}/boards/${id}`)
   )
-
-  editBoard = (id, title, description, token) => (
+  
+  editBoard = (id, title, description, unlisted, token) => (
     superagent
     .patch(`${API_HOST}/boards/${id}`)
-    .send({title, description})
+    .send({title, description, unlisted})
     .set('Authorization', `token ${token}`)
-    .then(console.log(id, "id", title, "title", description, "descr", token, "token", "inside editBoard "))
+    // .then(console.log(id, "id", title, "title", description, "descr", token, "token", "inside editBoard "))
     )
 
-  postNewBoard = (title, description, token) => (
+  postNewBoard = (title, description, unlisted, token) => (
      superagent
     .post(`${API_HOST}/boards/`)
-    .send({ title, description })
+    .send({ title, description, unlisted })
     .set('Authorization', `token ${token}`)
-    .then(console.log(title, "title", description, "descr", token, "token", "inside postnewBoard "))
+    // .then(console.log(title, "title", description, "descr", unlisted, "unlisted", token, "token", "inside postnewBoard "))
     )
 
   deleteBoard = (id, token) => (
@@ -59,7 +67,13 @@ class Api {
     .set('Authorization', `token ${token}`)
     .then(console.log(id, "board id"))
     )
-  
+
+  // unlistedBoard = (token) => (
+  //     superagent
+  //    .post 
+
+  //   )
+
   getBookmarks = (boardId) => (
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)

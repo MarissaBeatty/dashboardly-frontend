@@ -3,16 +3,17 @@ import api from '../../api';
 import BoardCard from '../elements/BoardCard';
 // import CreateBoard from '../modals/CreateBoard';
 import AddButton from '../elements/AddButton';
+import Search from '../elements/search'
 
 import auth from '../../auth';
 import './Home.css';
-
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boards: []
+      boards: [], 
+      modals: closed
    };
   }
   
@@ -21,7 +22,7 @@ export default class Home extends Component {
   }
   
   _fetchBoards = () => {
-    api.getBoardsList()
+    api.getBoardsList(auth.getToken())
     .then(res => {
       this.setState({ 
         boards: res.body.boards 
@@ -29,8 +30,15 @@ export default class Home extends Component {
     })
     .catch(console.error)
   }
-  // closeCreateBoard = () => this.setState({ isCreateBoardOpen: false })
-  
+
+    _handleSearch = (keyword) => {
+    api.getSearch(keyword)
+    .then(res => {
+          this.setState({ 
+            boards: res.body.boards
+          })
+    })
+  }
 
   render() {
     let { boards } = this.state
@@ -38,10 +46,9 @@ export default class Home extends Component {
     
     return (
       <div className="home">
-        <form className="searchForm">
-        <p>Search!</p>
-        <input type="text" ref="searchInput" placeholder="search boards" />
-        </form>
+        <Search 
+            _handleSearch={this._handleSearch}
+        />
         
           { boards.map(b =>
             <BoardCard

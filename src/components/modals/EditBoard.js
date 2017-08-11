@@ -11,7 +11,8 @@ constructor(props) {
     super(props);
     this.state = {
       title: "",
-      description: ""
+      description: "", 
+      unlisted: false
     }
     // console.log(this.state, "state in constructor")
    }
@@ -20,16 +21,18 @@ _handleEditBoard = () => {
     let { title: {value: title}, description: {value: description} } = this.refs;
     this.setState({
             title: this.refs.title.value,
-            description: this.refs.description.value
+            description: this.refs.description.value, 
+
           })
     
     if (title || description) {
-       console.log(title, "new board title")
+       // console.log(title, "new board title")
       // 
-      // var 
+      var unlisted = this.state.unlisted;
 
-      api.editBoard(this.props.BoardInfo.id, title, description, auth.getToken())
+      api.editBoard(this.props.BoardInfo.id, title, description, unlisted, auth.getToken())
       // console.log(this.props.BoardInfo.id)
+      .then(console.log(unlisted))
       // window.location.reload()
       .then(res => window.location.reload())
 
@@ -70,10 +73,12 @@ _handleEditBoard = () => {
               <div className="radioDiv">
                 <label>
                   set as unlisted:
-                  <input type="radio"
+                  <input type="checkbox"
                   ref="unlistedBoard"
                   value="unlistedBoard"
-                  name="set as unlisted" />
+                  name="set as unlisted" 
+                  onClick={()=>this.setState({ unlisted: true })}
+                  />
                 </label>
               </div>
               <p>{this.state.chars_left}</p>
