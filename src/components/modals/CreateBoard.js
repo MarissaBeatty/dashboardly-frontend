@@ -18,6 +18,7 @@ export default class CreateBoard extends Component {
       title: "",
       description: "", 
       unlisted: false
+      // ownerId: null
     };
     this._handleCreateBoard = this._handleCreateBoard.bind(this);
      // console.log(this.state)
@@ -39,13 +40,15 @@ export default class CreateBoard extends Component {
     let { title: {value: title}, description: {value: description} } = this.refs;
     this.setState({
             title: this.refs.title,
-            description: this.refs.description
+            description: this.refs.description 
+            // ownerId: auth.id
           })
+
     
     if (title && description) {
       // console.log(description, "description on createBoard")
       // console.log(title, "title on createBoard")
-      // console.log(this.refs)
+      console.log(this.refs)
       // console.log(this.state.unlisted)
       var unlisted = this.state.unlisted;
       api.postNewBoard(title, description, unlisted, auth.getToken())

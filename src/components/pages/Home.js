@@ -13,7 +13,8 @@ export default class Home extends Component {
     super(props);
     this.state = {
       boards: [], 
-      modals: closed
+      modals: closed, 
+      userId: null
    };
   }
   
@@ -22,7 +23,8 @@ export default class Home extends Component {
   }
   
   _fetchBoards = () => {
-    api.getBoardsList(auth.getToken())
+    // console.log(this);
+    api.getBoardsList()
     .then(res => {
       this.setState({ 
         boards: res.body.boards 
@@ -43,6 +45,8 @@ export default class Home extends Component {
   render() {
     let { boards } = this.state
     const isLoggedIn = auth.isLoggedIn()
+    console.log(this.state.boards[0])
+
     
     return (
       <div className="home">
