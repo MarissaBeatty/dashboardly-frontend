@@ -4,7 +4,6 @@ import BoardCard from '../elements/BoardCard';
 // import CreateBoard from '../modals/CreateBoard';
 import AddButton from '../elements/AddButton';
 import Search from '../elements/search'
-
 import auth from '../../auth';
 import './Home.css';
 
@@ -16,7 +15,7 @@ export default class Home extends Component {
       modals: closed
    };
   }
-  
+ 
   componentDidMount() {
     this._fetchBoards();
   }
@@ -50,25 +49,37 @@ export default class Home extends Component {
     
     return (
       <div className="home">
-        <Search 
-            _handleSearch={this._handleSearch}
-        />
-        
-          { boards.map(b =>
-            <BoardCard
-              key={b.id}
-              id={b.id}
-              title={b.title}
-              description={b.description}
-              updatedAt={b.updatedAt} 
-            /> 
-        )}
 
-        {isLoggedIn ? <AddButton /> : null}
-          
+        <div className="inner">
+          <div className="content">
+            <div className="searchForm">
+            
+              <div className="search-box-wrapper">
+                
+                <Search _handleSearch={this._handleSearch} />
+              </div>
+            
+            </div>
+
+            <div className="wrapper">
+              { boards.map(b =>
+                <BoardCard
+                  key={b.id}
+                  id={b.id}
+                  title={b.title}
+                  description={b.description}
+                  updatedAt={b.updatedAt} 
+                /> 
+            )}
+
+
+
+            {isLoggedIn ? <AddButton /> : null}
+            </div>
+          </div>
+        </div>
       </div>
     );
-    console.log("hello")
   }
 
 }

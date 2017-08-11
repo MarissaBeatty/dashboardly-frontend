@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './search.css';
 // import api from '../../api';
 // import BoardCard from '../elements/BoardCard';
 // import CreateBoard from '../modals/CreateBoard';
@@ -18,8 +19,6 @@ export default class Search extends Component {
    // this._handleSearch = this._handleSearch.bind(this);
   }
 
-
-
    _handleTyping = (e) => {
     
     if (this.state && this.state.error) {
@@ -34,8 +33,8 @@ export default class Search extends Component {
 
   search = (e) => {
   	e.preventDefault();
-  	// console.log(this.refs.keyword.value)
   	this.props._handleSearch(this.refs.keyword.value)
+    // this._handleSearch(this.refs.keyword.value)
   }
 
 
@@ -46,11 +45,12 @@ export default class Search extends Component {
 		        <input type="text" 
 		          ref="keyword" 
 		          placeholder="search boards" 
+              className="search-box-input"
 		          // onKeyUp={this._handleTyping}
 
 		        />
-		        <button 
-		        onClick={this.search}>Search!</button>
+		        <button className="search-box-button"
+		        onClick={this.search}>&#x1f50d;</button>
 
 		    </form>
 
@@ -58,3 +58,6 @@ export default class Search extends Component {
   		)
   }
 }
+
+// console.log(this.refs.keyword.value)
+   //  console.log(this.props)

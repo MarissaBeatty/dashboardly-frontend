@@ -38,7 +38,7 @@ class Api {
     .post(`${API_HOST}/boards/search`)
     .send({keyword})
     // .get(`${API_HOST}/boards`)
-    // .then(console.log(keyword, "keyword in api call"))
+    .then(console.log(keyword, "keyword in api call"))
     )
 
   getBoard = (id) => (

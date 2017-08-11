@@ -3,6 +3,7 @@ import './BookmarkCard.css';
 import auth from '../../auth';
 import EditBookmark from '../modals/EditBookmark';
 import DeleteBookmark from '../modals/DeleteBookmark';
+import './BookmarkCard.css';
 
 export default class BookmarkCard extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class BookmarkCard extends Component {
     return (
       <div className="bookmarkDiv">
         <a className="bookmark-card" href={link}>
-          <div>
+          <div className="bookmark-head-text">
             <h2>{ title }</h2>
             <p>{ description }</p>
           </div>

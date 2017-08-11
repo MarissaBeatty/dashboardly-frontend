@@ -46,20 +46,22 @@ export default class SignUp extends Component {
     // console.log(this.state.email, this.state.password)
     return (
       <div className="signup">
-        <h1>Signup to Dashboardly</h1>
+        <h1 className="signup_h1">Signup to Dashboardly</h1>
         
         <input type="email" 
         ref="email" 
         placeholder="email"
+        className="signup_email"
           onKeyUp={this._handleTyping}
         />
 
         <input type="password" 
         ref="password"
         placeholder="password"
+        className="signup_password"
           onKeyUp={this._handleTyping}
         />
-        <button onClick={this._handleSignup}>signup!</button>
+        <button onClick={this._handleSignup} className="signup_button">signup!</button>
         <p>{this.state.error}</p>
       </div>
     );

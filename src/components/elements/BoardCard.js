@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import auth from '../../auth';
 import EditBoard from '../modals/EditBoard';
 import DeleteBoard from '../modals/DeleteBoard';
-import Login from '../pages/Login';
 
 import './BoardCard.css';
 
@@ -20,7 +19,6 @@ export default class BoardCard extends Component {
 
     let { title, description, id } = this.props
     // console.log(this.state)
-    console.log(Login.LoginEmail)
     return (
       <div className="boardCardDiv">
       <Link to={`/boards/${id}`}>

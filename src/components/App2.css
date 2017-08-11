@@ -1,0 +1,65 @@
+body *, body *:before, body *:after { box-sizing: inherit; } 
+
+
+
+
+body {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  margin: 0px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+} 
+
+a {
+  
+
+} 
+
+.App {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background: url("http://wallpaperbackgrounds.com/Content/wallpapers/earth/field/summer-grain-24691.jpg");
+  display: table;
+  top: 0;
+  background-size: cover;  
+} 
+
+.inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+}
+
+.App-navbar {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.App-navbar__title {
+  
+  
+}  
+
+.title-wrapper {
+  
+}
+
+.settings-icon, .menu-icon, .App-navbar__title {
+  
+} 
+
+
+
+.menu__item {
+ 
+}
+
+.settings-icon:hover, .menu-icon:hover, .App-navbar__title:hover {
+  
+} 
